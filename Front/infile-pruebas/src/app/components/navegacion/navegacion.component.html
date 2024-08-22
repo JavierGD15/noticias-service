@@ -1,0 +1,26 @@
+<mat-tab-group [selectedIndex]="activeTabIndex" [disableRipple]="true">
+    <!-- Botón de Inicio -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div>Inicio</div>
+        <a [routerLink]="['./inicio']" (click)="ocultarImagen()" class="full-size-link"></a>
+      </ng-template>
+    </mat-tab>
+  
+    
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" (click)="menuTrigger.openMenu()">Categorías</div>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['./categoria1']" (click)="ocultarImagen()">Categoría 1</button>
+          <button mat-menu-item [routerLink]="['./categoria2']" (click)="ocultarImagen()">Categoría 2</button>
+          <button mat-menu-item [routerLink]="['./categoria3']" (click)="ocultarImagen()">Categoría 3</button>
+         
+        </mat-menu>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+  
+  <router-outlet></router-outlet>
+  
+  

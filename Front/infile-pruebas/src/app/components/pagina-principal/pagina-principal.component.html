@@ -1,0 +1,22 @@
+
+<div class="container">
+    <h1>Sección de búsqueda</h1>
+    <p>Selecciona una categoría o bien ingresa una palabra para la búsqueda.</p>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Selecciona una categoría</mat-label>
+      <mat-select [(ngModel)]="selectedCategoria" (selectionChange)="filtrarNoticias()">
+        <mat-option value="0">Todas las categorías</mat-option>
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria.id_clasificacion">{{ categoria.nombre }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <div class="grid-container">
+      <mat-card *ngFor="let noticia of filteredNoticias" class="grid-item">
+        <img mat-card-image [src]="noticia.enlace_photo" alt="Noticia imagen">
+        <mat-card-title>{{ noticia.titulo }}</mat-card-title>
+        <mat-card-content>{{ noticia.descripcion }}</mat-card-content>
+        <button mat-button color="primary">Ver más</button>
+      </mat-card>
+    </div>
+  </div>

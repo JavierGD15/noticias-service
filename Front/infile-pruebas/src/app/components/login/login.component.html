@@ -1,0 +1,25 @@
+<div class="login-container">
+  <mat-card class="login-box">
+    <mat-card-header>
+      <mat-card-title>Inicia Sesión</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm" class="grid-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="username" placeholder="Ingresa tu Usuario" required>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="Ingresa tu Contraseña" required>
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" (click)="onSubmit()">Ingresar</button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-button routerLink="/registro">¿No tienes una cuenta? Regístrate.</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
