@@ -18,7 +18,6 @@ export class DetalleNoticiasComponent implements OnInit {
       const receivedId = params.get('id');
       if (receivedId) {
         this.obtenerDatos(receivedId);
-
       }
     });
   }
@@ -28,6 +27,7 @@ export class DetalleNoticiasComponent implements OnInit {
       this.noticia = data;
       const nombreClasificacion = this.noticia.clasificacion.nombre;
       this.dataService.getRelacionadas(nombreClasificacion).subscribe(data => {
+        console.log(data);
         this.noticiasRelacionadas = data;
       });
     });

@@ -231,6 +231,7 @@ $breakpoint-desktop: 1024px;
   color: white;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
+  
 }
 
 div.mat-form-field-infix.ng-tns-c124-8 {
@@ -343,12 +344,15 @@ div.mat-form-field-infix.ng-tns-c124-8 {
 
 
 fieldset {
-  border: 2px solid #14649B; // Reemplaza #007bff con el valor hexadecimal exacto del color azul del título
+  
+  border: 2px solid #004E94; // Reemplaza #007bff con el valor hexadecimal exacto del color azul del título
   padding: 1em;
   margin: 1em 0;
 
   legend {
-      color: #14649B;
+    color: #004E94;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
       font-weight: bold;
       padding: 0 5px;
       width: auto;

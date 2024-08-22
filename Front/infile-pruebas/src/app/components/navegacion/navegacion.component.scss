@@ -1,60 +1,52 @@
+/* Estilos generales para la barra de navegación */
 ::ng-deep mat-tab-group {
-    .mat-tab-label-container {
-      overflow: visible !important;
-    }
-  
-    .mat-tab-header {
-      overflow: visible !important;
-    }
-  
-    .mat-tab-label {
-      color: black;
-      background-color: lightgray; /* Color para las pestañas inactivas */
-      margin-left: 15px; /* Agregando margen para evitar superposición */
-      transition: background-color 0.3s ease; /* Transición suave */
-    }
-  
-    .mat-tab-label-active {
-      background-color: #14649B !important; /* Color de la pestaña activa */
-      color: white; /* Color del texto en la pestaña activa */
-      margin-left: 15px;
-      transition: background-color 0.3s ease; /* Transición suave */
-    }
-  
-    .mat-tab-label:hover {
-      background-color: #007B9C; /* Color al hacer hover sobre la pestaña inactiva */
-      color: white; /* Color del texto al hacer hover */
-    }
-  }
-  
-  .full-size-link {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .mat-badge-content {
-    width: auto;
-    height: auto;
-    display: grid;
-    min-width: 32px;
-    min-height: 25px;
-    text-align: center;
-    align-items: center;
-    padding: 5px 3px;
-    top: -20px;
-    right: -22px;
-    background-color: red;
-  }
-  
-  .mat-badge {
-    width: auto;
-    display: grid;
-    text-align: center;
-    align-items: center;
-  }
-  
+  background-color: white; /* Fondo blanco para la barra */
+  padding: 10px 20px; /* Añadiendo un poco de padding */
+
   .mat-tab-label-container {
     overflow: visible !important;
   }
-  
+
+  .mat-tab-header {
+    overflow: visible !important;
+  }
+
+  .mat-tab-label {
+    color: black;
+    background-color: lightgray; /* Color para las pestañas inactivas */
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .mat-tab-label-active {
+    background-color: #14649B !important; /* Color de la pestaña activa */
+    color: white;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .mat-tab-label:hover {
+    background-color: #007B9C;
+    color: white;
+  }
+}
+
+.full-size-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Logo Container */
+.logo-container {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px; /* Espacio entre el logo y el primer tab */
+}
+
+.logo-img {
+  height: 40px; /* Tamaño ajustado del logo */
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}

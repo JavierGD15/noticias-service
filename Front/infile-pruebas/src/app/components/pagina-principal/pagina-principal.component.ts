@@ -30,7 +30,7 @@ export class PaginaPrincipalComponent implements OnInit {
   }
 
   filtrarNoticias(): void {
-    if (this.selectedCategoria === 0) {
+    if (this.selectedCategoria == 0) {
       this.filteredNoticias = this.noticias;
     } else {
       this.filteredNoticias = this.noticias.filter(noticia => noticia.clasificacion.id_clasificacion === this.selectedCategoria);

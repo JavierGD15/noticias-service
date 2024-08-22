@@ -17,9 +17,11 @@ import { MatInputModule } from '@angular/material/input';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { DetalleNoticiasComponent } from './components/detalle-noticias/detalle-noticias.component';
 import { JwtInterceptor } from './components/general-module/seguridad/jwt-interceptor.service';
 import { GenerarUsuarioComponent } from './components/generar-usuario/generar-usuario.component';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,8 @@ import { GenerarUsuarioComponent } from './components/generar-usuario/generar-us
     HttpClientModule,
     MatSelectModule,
     MatOptionModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
