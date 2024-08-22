@@ -14,15 +14,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { DetalleNoticiasComponent } from './components/detalle-noticias/detalle-noticias.component';
+import { JwtInterceptor } from './components/general-module/seguridad/jwt-interceptor.service';
+import { GenerarUsuarioComponent } from './components/generar-usuario/generar-usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PaginaPrincipalComponent,
-    NavegacionComponent
+    NavegacionComponent,
+    DetalleNoticiasComponent,
+    GenerarUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatSelectModule,
     MatOptionModule,
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

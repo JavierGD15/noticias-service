@@ -5,13 +5,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import Ncargo.ncargo.models.clasificacionModel;
+import Ncargo.ncargo.models.noticiasModel;
 import Ncargo.ncargo.repository.clasificacionRepository;
+import Ncargo.ncargo.service.noticiaSvc;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/clasificaciones")
+@CrossOrigin
 public class clasificacionController {
 
     @Autowired
@@ -52,4 +55,5 @@ public class clasificacionController {
         }
         return ResponseEntity.notFound().build();
     }
+
 }

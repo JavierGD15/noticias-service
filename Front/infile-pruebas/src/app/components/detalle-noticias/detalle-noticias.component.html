@@ -1,0 +1,22 @@
+<div *ngIf="noticia" class="detalle-noticia-container">
+    <h1>{{ noticia.titulo }}</h1>
+    <p><strong>Fecha:</strong> {{ noticia.fecha_creacion }} / <strong>Clasificación:</strong> {{ noticia.clasificacion.nombre }}</p>
+    <img [src]="noticia.enlace_photo" alt="{{ noticia.titulo }}" class="noticia-img">
+    <p>{{ noticia.texto }}</p>
+    
+    <h2>Noticias Relacionadas</h2>
+    <div *ngIf="noticiasRelacionadas.length > 0" class="related-news">
+      <mat-card *ngFor="let noticiaRel of noticiasRelacionadas" class="grid-item">
+        <img mat-card-image [src]="noticiaRel.enlace_photo" alt="Noticia relacionada">
+        <mat-card-title>{{ noticiaRel.titulo }}</mat-card-title>
+        <mat-card-content>{{ noticiaRel.descripcion }}</mat-card-content>
+        <button mat-button color="primary" [routerLink]="['/noticia', noticiaRel.id_noticias]">Ver más</button>
+      </mat-card>
+    </div>
+    <div *ngIf="noticiasRelacionadas.length === 0">
+      <p>No hay noticias relacionadas.</p>
+    </div>
+  
+    <button mat-raised-button color="primary" routerLink="/">Regresar</button>
+  </div>
+  

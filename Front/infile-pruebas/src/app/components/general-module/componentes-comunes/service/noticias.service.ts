@@ -23,4 +23,17 @@ export class noticiasService {
   getNoticias(): Observable<Noticia[]> {
     return this.http.get<Noticia[]>(`${this.baseURL}/noticias`);
   }
+
+  getNoticia(id: string): Observable<Noticia> {
+    return this.http.get<Noticia>(`${this.baseURL}/noticias/${id}`);
+  }
+
+  
+
+  getRelacionadas(nombreClasificacion: string): Observable<Noticia[]> {
+    // Hacemos la solicitud GET sin token
+    return this.http.get<Noticia[]>(`${this.baseURL}/noticias/clasificacion`, { 
+      params: { nombreClasificacion: nombreClasificacion }
+    });
+  }
 }

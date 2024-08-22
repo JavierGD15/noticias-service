@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { UsuarioInfo } from '../interface/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,27 @@ export class UsuarioService {
 
  
 
-  validarUsuario(correo: string, contra: string): Observable<string> {
+  validarUsuario(correo: string, contra: string): Observable<any> {
     const body = { correo: correo, contra: contra };
-    return this.http.post<string>(`${this.baseURL}/usuarios/login`, body);
+    return this.http.post<any>(`${this.baseURL}/usuarios/login`, body);
+  }
+
+  crearUsuario(usuario: UsuarioInfo): Observable<any> {
+    return this.http.post<any>(`${this.baseURL}/usuarios/register`, usuario);
+  }
+
+   // Método para almacenar el token en localStorage
+   setToken(token: string): void {
+    localStorage.setItem('jwtToken', token);
+  }
+
+  // Método para obtener el token almacenado
+  getToken(): string | null {
+    return localStorage.getItem('jwtToken');
+  }
+
+  // Método para eliminar el token de localStorage
+  clearToken(): void {
+    localStorage.removeItem('jwtToken');
   }
 }

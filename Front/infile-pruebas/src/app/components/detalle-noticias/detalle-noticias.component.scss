@@ -1,0 +1,38 @@
+.detalle-noticia-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .noticia-img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  
+  .related-news {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .grid-item {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  mat-card {
+    transition: transform 0.3s ease;
+  }
+  
+  mat-card:hover {
+    transform: scale(1.05);
+  }
+  
+  button {
+    display: block;
+    margin-top: 20px;
+  }
+  

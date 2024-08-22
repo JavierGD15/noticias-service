@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Crear Cuenta</h1>
+    <form [formGroup]="usuarioForm" class="grid-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" placeholder="Ingresa tu nombre">
+            <mat-error *ngIf="usuarioForm.get('nombre')?.hasError('required')">El nombre es requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="apellido" placeholder="Ingresa tu apellido">
+            <mat-error *ngIf="usuarioForm.get('apellido')?.hasError('required')">El apellido es requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Edad</mat-label>
+            <input matInput formControlName="edad" type="number" placeholder="Ingresa tu edad">
+            <mat-error *ngIf="usuarioForm.get('edad')?.hasError('required')">La edad es requerida</mat-error>
+            <mat-error *ngIf="usuarioForm.get('edad')?.hasError('min')">La edad debe ser mayor que 0</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input matInput formControlName="correo" placeholder="Ingresa tu correo electrónico" type="email">
+            <mat-error *ngIf="usuarioForm.get('correo')?.hasError('required')">El correo es requerido</mat-error>
+            <mat-error *ngIf="usuarioForm.get('correo')?.hasError('email')">Correo no válido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="contra" type="password" placeholder="Ingresa tu contraseña">
+            <mat-error *ngIf="usuarioForm.get('contra')?.hasError('required')">La contraseña es requerida</mat-error>
+            <mat-error *ngIf="usuarioForm.get('contra')?.hasError('minlength')">La contraseña debe tener al menos 6
+                caracteres</mat-error>
+        </mat-form-field>
+
+
+    </form>
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="usuarioForm.invalid">Crear Cuenta</button>
+</div>

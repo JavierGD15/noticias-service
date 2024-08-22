@@ -12,10 +12,9 @@
       <ng-template mat-tab-label>
         <div #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" (click)="menuTrigger.openMenu()">Categorías</div>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item [routerLink]="['./categoria1']" (click)="ocultarImagen()">Categoría 1</button>
-          <button mat-menu-item [routerLink]="['./categoria2']" (click)="ocultarImagen()">Categoría 2</button>
-          <button mat-menu-item [routerLink]="['./categoria3']" (click)="ocultarImagen()">Categoría 3</button>
-         
+          <button mat-menu-item *ngFor="let categoria of categorias" [routerLink]="['/categoria', categoria.id_clasificacion]" (click)="ocultarImagen()">
+            {{ categoria.nombre }}
+          </button>
         </mat-menu>
       </ng-template>
     </mat-tab>

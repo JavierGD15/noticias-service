@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.tablaservice.clearToken();
   }
 
   loginForm = this.formBuilder.group({
@@ -30,15 +31,22 @@ export class LoginComponent implements OnInit {
       const pass = this.loginForm.value.password
 
       this.tablaservice.validarUsuario(correo, pass).subscribe(
-        (datas: string) => {
-
-          this.router.navigate(['noticias']);
+        (datas: any) => {
+          const token = datas.token;
+          this.tablaservice.setToken(token);
+          this.alertService.mostrarAlerta({
+            titulo: 'success',
+            mensaje: "Inicio de sesión exitoso",
+            icono: 'success'
+          }).then(() => {
+            this.router.navigate(['noticias']);
+          });
+          
 
         }, error => {
-          alert(error);
           this.alertService.mostrarAlerta({
             titulo: 'Información',
-            mensaje: error.error.message,
+            mensaje: error.error,
             icono: 'info'
           }).then(() => {
             this.loginForm.reset();
